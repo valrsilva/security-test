@@ -11,13 +11,20 @@
         <beans:property name="dataSource" ref="dataSource"/>
     </beans:bean>
 
+    <beans:bean id="myAccessDeniedHandler" class="br.com.vrosendo.securitytest.exception.handler.AccessDeniedExceptionHandler"/>
+
     <http auto-config="true" disable-url-rewriting="true" use-expressions="true">
-        <csrf disabled="true"/>
         <intercept-url pattern="/login" access="isAnonymous()" requires-channel="https"/>
         <intercept-url pattern="/resources/**" access="isAnonymous()"/>
         <intercept-url pattern="/logout" access="isAnonymous()"/>
-        <intercept-url pattern="/403" access="isAnonymous()"/>
+        <intercept-url pattern="/403" access="permitAll()"/>
         <intercept-url pattern="/404" access="permitAll()"/>
+        <intercept-url pattern="/invalidCsrf" access="permitAll()"/>
+        <intercept-url pattern="/vendas" access="hasRole('ROLE_VENDEDOR')"/>
+        <intercept-url pattern="/financeiro" access="hasRole('ROLE_FINANCEIRO')"/>
+        <intercept-url pattern="/relatorios" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/permissoes" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/alterarPerfil" access="hasRole('ROLE_USER')"/>
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
         <form-login
                 login-page="/login"
@@ -28,7 +35,7 @@
                 always-use-default-target="true"
                 authentication-failure-url="/login" />
         <logout logout-success-url="/logout" logout-url="/j_spring_security_logout" />
-        <access-denied-handler error-page="/403"/>
+        <access-denied-handler ref="myAccessDeniedHandler"/>
         <remember-me key="2c3e9759605f5af4cec4035f0eb3078c" remember-me-parameter="_spring_security_remember_me"/>
     </http>
 

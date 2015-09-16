@@ -31,7 +31,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
             <p class="navbar-text navbar-right"><i class="fa fa-sign-out">
-                <a href="/security-test/j_spring_security_logout" style="margin-right:15px">Logout</a></i>Logado como <sec:authentication property="name"/>
+                <a href="javascript:logoutForm.submit()" style="margin-right:15px">Logout</a></i>Logado como <sec:authentication property="name"/>
+                <form action="/security-test/j_spring_security_logout" name="logoutForm" id="logoutForm" method="POST">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                </form>
             </p>
         </div>
     </div>
@@ -48,13 +51,13 @@
       <span class="col-md-6">
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="#" role="button" class="btn btn-primary <sec:authorize access="!hasRole('ROLE_VENDEDOR')">disabled</sec:authorize>" >Vendas</a>
+                <a href="vendas" role="button" class="btn btn-primary <sec:authorize access="!hasRole('ROLE_VENDEDOR')">disabled</sec:authorize>" >Vendas</a>
             </li>
             <li class="list-group-item">
-                <a href="#" role="button" class="btn btn-primary <sec:authorize access="!hasRole('ROLE_FINANCEIRO')">disabled</sec:authorize>" >Financeiro</a>
+                <a href="financeiro" role="button" class="btn btn-primary <sec:authorize access="!hasRole('ROLE_FINANCEIRO')">disabled</sec:authorize>" >Financeiro</a>
             </li>
             <li class="list-group-item">
-                <a href="#" role="button" class="btn btn-primary <sec:authorize access="!hasRole('ROLE_ADMIN')">disabled</sec:authorize>" >Relatorios</a>
+                <a href="relatorios" role="button" class="btn btn-primary <sec:authorize access="!hasRole('ROLE_ADMIN')">disabled</sec:authorize>" >Relatorios</a>
             </li>
             <li class="list-group-item">
                 <a href="permissoes" role="button" class="btn btn-primary" >Permissoes</a>

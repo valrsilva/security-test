@@ -18,4 +18,9 @@ public class ErrorController {
     public String pageNotFound(){
         return "404";
     }
+
+    @RequestMapping("/invalidCsrf")
+    public String invalidCsrf(){
+        return "invalidCsrf";
+    }
 }

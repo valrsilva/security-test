@@ -107,8 +107,6 @@ public class PermissoesController {
             authorityRepository.save(auth2);
         }
 
-        //userRepository.save(user);
-
         return "index";
     }
 

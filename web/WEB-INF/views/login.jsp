@@ -40,6 +40,7 @@
 				</div>
 				<div class="panel-body">
 					<form role="form" action="j_spring_security_check" name="f" method="POST">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="E-mail" name="j_username" type="email" autofocus>
