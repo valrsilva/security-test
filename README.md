@@ -16,17 +16,17 @@ Teste do Spring Security
 -Runtime reloading permissions
 
 # Https Support
-To enable https followup these steps:
+To enable https follow these steps:
 
 This example is assuming you are using a Tomcat server.
 
-Open a terminal, goto to TOMCAT_HOME/bin and execute:
+Open a terminal, go to TOMCAT_HOME/bin and execute:
 
 keytool -genkey -alias tomcat -keyalg RSA -keystore C:\Temp\tomcat
 
 When it's asked put the password and the detail information for the certificate
 
-Edit the server.xml and change the follow lines:
+Edit the server.xml and change the following lines:
 
 ```
 <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
