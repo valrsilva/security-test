@@ -13,20 +13,15 @@ public class LoginController {
     public String login(){
         return "login";
     }
+
     @RequestMapping("/logout")
     public String logout(){
         return "logout";
     }
+
     @RequestMapping("/index")
     public String index(){
         return "index";
     }
-    @RequestMapping("/403")
-    public String unauthorized(){
-        return "403";
-    }
-    @RequestMapping("/proibido")
-    public String proibido(){
-        return "proibido";
-    }
+
 }

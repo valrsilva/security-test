@@ -1,3 +1,12 @@
-INSERT INTO users VALUES('teste@teste.com.br', '$2a$10$EfsXGM73ZQMpnYLby8ToquC6gy7V.RFsH8ce1u30TdE313Hq/r16G', 1);
-INSERT INTO authorities VALUES('teste@teste.com.br', 'ROLE_USER');
+INSERT INTO users VALUES(1, 'administrador@teste.com.br', '$2a$10$EfsXGM73ZQMpnYLby8ToquC6gy7V.RFsH8ce1u30TdE313Hq/r16G', 1);
+INSERT INTO users VALUES(2, 'financeiro@teste.com.br', '$2a$10$EfsXGM73ZQMpnYLby8ToquC6gy7V.RFsH8ce1u30TdE313Hq/r16G', 1);
+INSERT INTO users VALUES(3, 'vendedor@teste.com.br', '$2a$10$EfsXGM73ZQMpnYLby8ToquC6gy7V.RFsH8ce1u30TdE313Hq/r16G', 1);
+INSERT INTO authorities VALUES(1, 1, 'administrador@teste.com.br', 'ROLE_USER');
+INSERT INTO authorities VALUES(2, 1, 'administrador@teste.com.br', 'ROLE_ADMIN');
+INSERT INTO authorities VALUES(3, 1, 'administrador@teste.com.br', 'ROLE_FINANCEIRO');
+INSERT INTO authorities VALUES(4, 1, 'administrador@teste.com.br', 'ROLE_VENDEDOR');
+INSERT INTO authorities VALUES(5, 2, 'financeiro@teste.com.br', 'ROLE_USER');
+INSERT INTO authorities VALUES(6, 2, 'financeiro@teste.com.br', 'ROLE_FINANCEIRO');
+INSERT INTO authorities VALUES(7, 3, 'vendedor@teste.com.br', 'ROLE_USER');
+INSERT INTO authorities VALUES(8, 3, 'vendedor@teste.com.br', 'ROLE_VENDEDOR');
 commit;
