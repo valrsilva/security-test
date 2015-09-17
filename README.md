@@ -15,6 +15,8 @@ Teste do Spring Security
 
 -Runtime reloading permissions
 
+-Csrf enabled
+
 # Https Support
 To enable https follow these steps:
 
